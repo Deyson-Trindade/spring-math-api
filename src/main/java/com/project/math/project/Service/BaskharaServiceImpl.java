@@ -9,7 +9,7 @@ import static java.lang.Math.sqrt;
 @Service
 public class BaskharaServiceImpl implements BaskharaService {
 
-    public void calulaEquacaoDoSegundoGrau(Double a, Double b, Double c) {
+    public Equation calulaEquacaoDoSegundoGrau(Double a, Double b, Double c) {
 
         Equation equation = new Equation();
 
@@ -25,6 +25,8 @@ public class BaskharaServiceImpl implements BaskharaService {
 
         equation.setX1(x1);
         equation.setX2(x2);
+
+        return equation;
     }
 
 }
