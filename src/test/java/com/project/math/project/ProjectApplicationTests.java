@@ -1,11 +1,10 @@
 package com.project.math.project;
 
-import com.project.math.project.Service.BaskharaService;
-import com.project.math.project.controller.BaskharaController;
+import com.project.math.project.Service.VolumeService;
+import com.project.math.project.model.Volume;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
 
@@ -13,14 +12,21 @@ import org.springframework.core.annotation.Order;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ProjectApplicationTests {
 
-	@Autowired
-	BaskharaService baskharaService;
+	VolumeService volumeService;
 
 	@Test
 	@Order(1)
 	void resolveEquacao() {
 
-		baskharaService.calulaEquacaoDoSegundoGrau(2.0, -4.0, 5.0);
+		Volume volume = new Volume();
+
+		volume.setNome("cilindro");
+		volume.setAltura(Double.valueOf(10));
+		volume.setRaio(Double.valueOf(5));
+		volume.setUnidade("metro");
+
+		//Assert.assertNotNull(volumeService.calculaVolume(volume));
+
 
 
 		}
