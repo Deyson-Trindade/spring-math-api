@@ -1,6 +1,6 @@
 package com.project.math.project.controller;
 
-import com.project.math.project.Service.VolumeService;
+import com.project.math.project.service.VolumeService;
 import com.project.math.project.dto.GeometricFigureRequest;
 import com.project.math.project.dto.GeometricFigureResponse;
 import com.project.math.project.model.GeometricFigure;
@@ -39,5 +39,4 @@ public class FigureGeometricController {
 
         return new ResponseEntity<GeometricFigureResponse>(geometricFigureResponse, HttpStatus.OK);
     }
-
 }

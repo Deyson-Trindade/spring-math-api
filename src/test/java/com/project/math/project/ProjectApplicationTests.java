@@ -1,8 +1,7 @@
 package com.project.math.project;
 
-import com.project.math.project.Service.VolumeService;
+import com.project.math.project.service.VolumeService;
 import com.project.math.project.model.GeometricFigure;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;

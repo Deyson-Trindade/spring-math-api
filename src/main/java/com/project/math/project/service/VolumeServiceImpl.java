@@ -1,4 +1,4 @@
-package com.project.math.project.Service;
+package com.project.math.project.service;
 
 import com.project.math.project.model.GeometricFigure;
 import org.springframework.stereotype.Service;

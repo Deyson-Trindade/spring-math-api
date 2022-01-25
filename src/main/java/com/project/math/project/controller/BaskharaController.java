@@ -1,6 +1,6 @@
 package com.project.math.project.controller;
 
-import com.project.math.project.Service.BaskharaServiceImpl;
+import com.project.math.project.service.BaskharaServiceImpl;
 import com.project.math.project.exception.NegativeDeltaException;
 import com.project.math.project.model.Equation;
 import org.springframework.http.HttpStatus;
