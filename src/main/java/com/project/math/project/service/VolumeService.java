@@ -4,5 +4,5 @@ import com.project.math.project.model.GeometricFigure;
 
 public interface VolumeService {
 
-    String calculaVolume(GeometricFigure geometricFigure);
+    String calcularVolume(GeometricFigure geometricFigure);
 }

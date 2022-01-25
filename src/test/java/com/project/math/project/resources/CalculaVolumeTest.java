@@ -30,7 +30,7 @@ public class CalculaVolumeTest {
         geometricFigure.setRaio(5D);
         geometricFigure.setUnidade("metro");
 
-        String volume = volumeService.calculaVolume(geometricFigure);
+        String volume = volumeService.calcularVolume(geometricFigure);
         GeometricFigureResponse geometricFigureResponse = new GeometricFigureResponse();
         geometricFigureResponse.setVolume(volume);
 

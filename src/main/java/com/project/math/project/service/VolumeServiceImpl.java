@@ -14,7 +14,7 @@ public class VolumeServiceImpl implements VolumeService {
     private static final DecimalFormat dfZero = new DecimalFormat("0.00");
 
     @Override
-    public String calculaVolume(GeometricFigure geometricFigure) {
+    public String calcularVolume(GeometricFigure geometricFigure) {
 
         if ("cilindro".equalsIgnoreCase(geometricFigure.getNome())) {
             return dfZero.format(pow(geometricFigure.getRaio(), 2) * PI * geometricFigure.getAltura());

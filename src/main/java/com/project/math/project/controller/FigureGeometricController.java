@@ -30,7 +30,7 @@ public class FigureGeometricController {
         geometricFigure.setAltura(geometricFigureRequest.getAltura());
         geometricFigure.setRaio(geometricFigureRequest.getRaio());
 
-        final String volume = volumeService.calculaVolume(geometricFigure);
+        final String volume = volumeService.calcularVolume(geometricFigure);
 
         GeometricFigureResponse geometricFigureResponse = new GeometricFigureResponse();
         geometricFigureResponse.setVolume(volume);
