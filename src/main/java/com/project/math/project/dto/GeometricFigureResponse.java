@@ -2,13 +2,13 @@ package com.project.math.project.dto;
 
 public class GeometricFigureResponse {
 
-    private double volume;
+    private String volume;
 
-    public double getVolume() {
+    public String getVolume() {
         return volume;
     }
 
-    public void setVolume(double volume) {
+    public void setVolume(String volume) {
         this.volume = volume;
     }
 }

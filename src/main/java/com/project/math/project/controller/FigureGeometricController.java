@@ -1,11 +1,10 @@
 package com.project.math.project.controller;
 
-import com.project.math.project.service.VolumeService;
 import com.project.math.project.dto.GeometricFigureRequest;
 import com.project.math.project.dto.GeometricFigureResponse;
 import com.project.math.project.model.GeometricFigure;
+import com.project.math.project.service.VolumeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +19,6 @@ import javax.validation.Valid;
 public class FigureGeometricController {
 
     @Autowired
-    @Lazy
     private VolumeService volumeService;
 
     @PostMapping
@@ -32,7 +30,7 @@ public class FigureGeometricController {
         geometricFigure.setAltura(geometricFigureRequest.getAltura());
         geometricFigure.setRaio(geometricFigureRequest.getRaio());
 
-        final double volume = volumeService.calculaVolume(geometricFigure);
+        final String volume = volumeService.calculaVolume(geometricFigure);
 
         GeometricFigureResponse geometricFigureResponse = new GeometricFigureResponse();
         geometricFigureResponse.setVolume(volume);
