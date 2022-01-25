@@ -1,33 +1,20 @@
 package com.project.math.project.Service;
 
-import com.project.math.project.model.Volume;
-
-import java.util.Locale;
+import com.project.math.project.model.GeometricFigure;
+import org.springframework.stereotype.Service;
 
 import static java.lang.Math.pow;
+import static java.lang.Math.PI;
 
+@Service
 public class VolumeServiceImpl implements VolumeService {
 
     @Override
-    public Volume calculaVolume(Volume volume) {
+    public double calculaVolume(GeometricFigure geometricFigure) {
 
-        final Double PI = 3.14;
-        Double resultado;
-
-        if (volume.getNome().toLowerCase(Locale.ROOT).equals("cilindro")) {
-
-            resultado = pow(volume.getRaio(), 2) * PI * volume.getAltura();
-
-        } else {
-
-            resultado = (3 * pow(volume.getRaio(), 3) * PI) / 4;
-
+        if ("cilindro".equalsIgnoreCase(geometricFigure.getNome())) {
+            return pow(geometricFigure.getRaio(), 2) * PI * geometricFigure.getAltura();
         }
-
-        volume.setVolume(resultado);
-
-        return volume;
-
+        return (3 * pow(geometricFigure.getRaio(), 3) * PI) / 4;
     }
-
 }

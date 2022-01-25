@@ -1,10 +1,12 @@
 package com.project.math.project;
 
 import com.project.math.project.Service.VolumeService;
-import com.project.math.project.model.Volume;
+import com.project.math.project.model.GeometricFigure;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.annotation.Order;
 
@@ -12,20 +14,23 @@ import org.springframework.core.annotation.Order;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ProjectApplicationTests {
 
+	@Autowired
 	VolumeService volumeService;
 
 	@Test
 	@Order(1)
 	void resolveEquacao() {
 
-		Volume volume = new Volume();
+		GeometricFigure geometricFigure = new GeometricFigure();
 
-		volume.setNome("cilindro");
-		volume.setAltura(Double.valueOf(10));
-		volume.setRaio(Double.valueOf(5));
-		volume.setUnidade("metro");
+		geometricFigure.setNome("cilindro");
+		geometricFigure.setAltura(10D);
+		geometricFigure.setRaio(5D);
+		geometricFigure.setUnidade("metro");
 
-		//Assert.assertNotNull(volumeService.calculaVolume(volume));
+		volumeService.calculaVolume(geometricFigure);
+
+		//Assertions.assertNotNull(geometricFigure.getVolume());
 
 
 

@@ -1,9 +1,9 @@
-package com.project.math.project.model;
+package com.project.math.project.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class Volume {
+public class GeometricFigureRequest {
 
     @NotBlank
     private String nome;
@@ -12,8 +12,6 @@ public class Volume {
     private Double raio;
 
     private Double altura;
-
-    private Double volume;
 
     @NotBlank
     private String unidade;
@@ -24,14 +22,6 @@ public class Volume {
 
     public void setUnidade(String unidade) {
         this.unidade = unidade;
-    }
-
-    public Double getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Double volume) {
-        this.volume = volume;
     }
 
     public String getNome() {
@@ -57,4 +47,5 @@ public class Volume {
     public void setAltura(Double altura) {
         this.altura = altura;
     }
+
 }

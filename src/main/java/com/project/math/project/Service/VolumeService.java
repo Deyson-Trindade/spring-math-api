@@ -1,8 +1,8 @@
 package com.project.math.project.Service;
 
-import com.project.math.project.model.Volume;
+import com.project.math.project.model.GeometricFigure;
 
 public interface VolumeService {
 
-    Volume calculaVolume(Volume volume);
+    double calculaVolume(GeometricFigure geometricFigure);
 }
