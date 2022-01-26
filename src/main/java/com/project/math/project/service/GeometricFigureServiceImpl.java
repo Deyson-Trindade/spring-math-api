@@ -9,12 +9,12 @@ import static java.lang.Math.PI;
 import java.text.DecimalFormat;
 
 @Service
-public class VolumeServiceImpl implements VolumeService {
+public class GeometricFigureServiceImpl implements GeometricFigureService {
 
     private static final DecimalFormat dfZero = new DecimalFormat("0.00");
 
     @Override
-    public String calcularVolume(GeometricFigure geometricFigure) {
+    public String calcularVolume(final GeometricFigure geometricFigure) {
 
         if ("cilindro".equalsIgnoreCase(geometricFigure.getNome())) {
             return dfZero.format(pow(geometricFigure.getRaio(), 2) * PI * geometricFigure.getAltura());

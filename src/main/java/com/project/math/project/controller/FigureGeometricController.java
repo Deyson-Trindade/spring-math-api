@@ -3,7 +3,7 @@ package com.project.math.project.controller;
 import com.project.math.project.dto.GeometricFigureRequest;
 import com.project.math.project.dto.GeometricFigureResponse;
 import com.project.math.project.model.GeometricFigure;
-import com.project.math.project.service.VolumeService;
+import com.project.math.project.service.GeometricFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 public class FigureGeometricController {
 
     @Autowired
-    private VolumeService volumeService;
+    private GeometricFigureService volumeService;
 
     @PostMapping
     public ResponseEntity<GeometricFigureResponse> getVolume(
