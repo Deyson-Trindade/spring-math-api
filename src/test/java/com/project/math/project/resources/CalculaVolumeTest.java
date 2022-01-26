@@ -2,7 +2,7 @@ package com.project.math.project.resources;
 
 import com.project.math.project.dto.GeometricFigureResponse;
 import com.project.math.project.model.GeometricFigure;
-import com.project.math.project.service.VolumeService;
+import com.project.math.project.service.GeometricFigureService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import org.springframework.core.annotation.Order;
 public class CalculaVolumeTest {
 
     @Autowired
-    VolumeService volumeService;
+    GeometricFigureService volumeService;
 
     @Test
     @Order(1)
