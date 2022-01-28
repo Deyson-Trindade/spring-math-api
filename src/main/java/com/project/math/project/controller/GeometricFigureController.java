@@ -16,10 +16,10 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/math/volume")
-public class FigureGeometricController {
+public class GeometricFigureController {
 
     @Autowired
-    private GeometricFigureService volumeService;
+    private GeometricFigureService geometricFigureService;
 
     @PostMapping
     public ResponseEntity<GeometricFigureResponse> getVolume(
@@ -29,8 +29,11 @@ public class FigureGeometricController {
         geometricFigure.setNome(geometricFigureRequest.getNome());
         geometricFigure.setAltura(geometricFigureRequest.getAltura());
         geometricFigure.setRaio(geometricFigureRequest.getRaio());
+        geometricFigure.setUnidade(geometricFigureRequest.getUnidade());
 
-        final String volume = volumeService.calcularVolume(geometricFigure);
+        final String volume = geometricFigureService.calcularVolume(geometricFigure);
+
+        geometricFigureService.create(geometricFigure);
 
         GeometricFigureResponse geometricFigureResponse = new GeometricFigureResponse();
         geometricFigureResponse.setVolume(volume);

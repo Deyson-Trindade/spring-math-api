@@ -1,50 +1,32 @@
 package com.project.math.project.model;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import lombok.Data;
 
-public class GeometricFigure {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.UUID;
 
-    @NotBlank
+@Data
+@Entity
+public class GeometricFigure extends Operation {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id", unique = true, nullable = false)
+    private UUID id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @NotNull
+    @Column(name = "raio", nullable = false)
     private Double raio;
 
+    @Column(name = "altura", nullable = false)
     private Double altura;
 
-    @NotBlank
+    @Column(name = "unidade", nullable = false)
     private String unidade;
 
-    public String getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Double getRaio() {
-        return raio;
-    }
-
-    public void setRaio(Double raio) {
-        this.raio = raio;
-    }
-
-    public Double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(Double altura) {
-        this.altura = altura;
-    }
 }

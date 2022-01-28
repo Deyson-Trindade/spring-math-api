@@ -1,9 +1,11 @@
 package com.project.math.project.controller;
 
+import com.project.math.project.dto.BaskharaResponse;
 import com.project.math.project.service.BaskharaService;
-import com.project.math.project.service.BaskharaServiceImpl;
 import com.project.math.project.exception.NegativeDeltaException;
 import com.project.math.project.model.Equation;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +21,23 @@ public class BaskharaController {
     @Autowired
     BaskharaService baskharaService;
 
-    Equation equation;
+
 
     @GetMapping
-    public ResponseEntity<Equation> getResolution(
+    public ResponseEntity<BaskharaResponse> getResolution(
             @RequestParam(value = "a") Double a, @RequestParam(value = "b") Double b,
             @RequestParam(value = "c") Double c) throws NegativeDeltaException {
 
-        equation = baskharaService.calulaEquacaoDoSegundoGrau(a, b, c);
+        final BaskharaResponse baskharaResponse = new BaskharaResponse();
 
-        return new ResponseEntity<Equation>(equation, HttpStatus.OK);
+        Equation equation = baskharaService.calulaEquacaoDoSegundoGrau(a, b, c);
+
+        baskharaService.create(equation);
+
+
+        baskharaResponse.setX1(equation.getX1());
+        baskharaResponse.setX2(equation.getX2());
+
+        return new ResponseEntity<BaskharaResponse>(baskharaResponse, HttpStatus.OK);
     }
 }
