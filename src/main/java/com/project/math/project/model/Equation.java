@@ -1,26 +1,34 @@
 package com.project.math.project.model;
 
-import javax.validation.constraints.NotBlank;
+import lombok.Data;
 
-public class Equation {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.UUID;
 
+@Entity
+@Data
+public class Equation extends Operation {
+
+   @Id
+   @GeneratedValue
+   @Column(name = "id", unique = true, nullable = false)
+   private UUID id;
+
+   @Column(name = "x1", nullable = false)
    private Double x1;
 
+   @Column(name = "x2", nullable = false)
    private Double x2;
 
-   public Double getX1() {
-      return x1;
-   }
+   @Column(name = "a", nullable = false)
+   private Double a;
 
-   public void setX1(Double x1) {
-      this.x1 = x1;
-   }
+   @Column(name = "b", nullable = false)
+   private Double b;
 
-   public Double getX2() {
-      return x2;
-   }
-
-   public void setX2(Double x2) {
-      this.x2 = x2;
-   }
+   @Column(name = "c", nullable = false)
+   private Double c;
 }
