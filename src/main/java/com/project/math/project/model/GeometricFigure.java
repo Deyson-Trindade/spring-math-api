@@ -29,4 +29,7 @@ public class GeometricFigure extends Operation {
     @Column(name = "unidade", nullable = false)
     private String unidade;
 
+    @Column(name = "resultado", nullable = false)
+    private String resultado;
+
 }
