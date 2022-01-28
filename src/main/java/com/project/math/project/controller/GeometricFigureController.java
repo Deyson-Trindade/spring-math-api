@@ -33,10 +33,10 @@ public class GeometricFigureController {
 
         final String volume = geometricFigureService.calcularVolume(geometricFigure);
 
-        geometricFigureService.create(geometricFigure);
-
         GeometricFigureResponse geometricFigureResponse = new GeometricFigureResponse();
+        geometricFigure.setResultado(volume);
         geometricFigureResponse.setVolume(volume);
+        geometricFigureService.create(geometricFigure);
 
         return new ResponseEntity<GeometricFigureResponse>(geometricFigureResponse, HttpStatus.OK);
     }
