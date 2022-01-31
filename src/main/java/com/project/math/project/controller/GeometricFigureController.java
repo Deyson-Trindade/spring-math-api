@@ -7,12 +7,10 @@ import com.project.math.project.service.GeometricFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/math/volume")
@@ -20,6 +18,11 @@ public class GeometricFigureController {
 
     @Autowired
     private GeometricFigureService geometricFigureService;
+
+    @GetMapping("/list")
+    public List<GeometricFigure> getAllGeometricFigureMeasurements() {
+        return geometricFigureService.findAll();
+    }
 
     @PostMapping
     public ResponseEntity<GeometricFigureResponse> getVolume(
@@ -38,6 +41,6 @@ public class GeometricFigureController {
         geometricFigureResponse.setVolume(volume);
         geometricFigureService.create(geometricFigure);
 
-        return new ResponseEntity<GeometricFigureResponse>(geometricFigureResponse, HttpStatus.OK);
+        return new ResponseEntity<>(geometricFigureResponse, HttpStatus.OK);
     }
 }
