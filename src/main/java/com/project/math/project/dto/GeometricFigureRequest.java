@@ -16,7 +16,6 @@ public class GeometricFigureRequest {
     @NotNull
     private Double raio;
 
-    @NotNull
     private Double altura;
 
     @NotBlank

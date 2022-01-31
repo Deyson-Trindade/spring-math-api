@@ -2,11 +2,11 @@ package com.project.math.project.service;
 
 import com.project.math.project.exception.NegativeDeltaException;
 import com.project.math.project.model.Equation;
-import com.project.math.project.repository.EquationRepository;
+import com.project.math.project.repository.BaskharaRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import static java.lang.Math.sqrt;
 
@@ -14,7 +14,7 @@ import static java.lang.Math.sqrt;
 @AllArgsConstructor
 public class BaskharaServiceImpl implements BaskharaService {
 
-    EquationRepository equationRepository;
+    BaskharaRepository baskharaRepository;
 
     public Equation calulaEquacaoDoSegundoGrau(Double a, Double b, Double c) {
 
@@ -40,12 +40,22 @@ public class BaskharaServiceImpl implements BaskharaService {
     }
 
     @Override
-    public Equation create(Equation equation) {
-        return equationRepository.save(equation);
+    public void create(Equation equation) {
+        baskharaRepository.save(equation);
     }
 
     @Override
-    public Page<Equation> findAll(Pageable pageable) {
-        return equationRepository.findAll(pageable);
+    public List<Equation> findAll() {
+        return baskharaRepository.findAll();
+    }
+
+    @Override
+    public List<Equation> findByA(Double a) {
+        return baskharaRepository.findByA(a);
+    }
+
+    @Override
+    public List<Equation> findByB(Double b) {
+        return baskharaRepository.findByB(b);
     }
 }

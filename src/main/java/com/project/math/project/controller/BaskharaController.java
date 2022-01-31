@@ -21,8 +21,6 @@ public class BaskharaController {
     @Autowired
     BaskharaService baskharaService;
 
-
-
     @GetMapping
     public ResponseEntity<BaskharaResponse> getResolution(
             @RequestParam(value = "a") Double a, @RequestParam(value = "b") Double b,
@@ -38,6 +36,6 @@ public class BaskharaController {
         baskharaResponse.setX1(equation.getX1());
         baskharaResponse.setX2(equation.getX2());
 
-        return new ResponseEntity<BaskharaResponse>(baskharaResponse, HttpStatus.OK);
+        return new ResponseEntity<>(baskharaResponse, HttpStatus.OK);
     }
 }

@@ -3,11 +3,10 @@ package com.project.math.project.service;
 import com.project.math.project.model.GeometricFigure;
 import com.project.math.project.repository.GeometricFigureRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.pow;
@@ -30,12 +29,17 @@ public class GeometricFigureServiceImpl implements GeometricFigureService {
         return dfZero.format((3 * pow(geometricFigure.getRaio(), 3) * PI) / 4);
     }
 
-    public GeometricFigure create(final GeometricFigure geometricFigure) {
-        return geometricFigureRepository.save(geometricFigure);
+    public void create(final GeometricFigure geometricFigure) {
+        geometricFigureRepository.save(geometricFigure);
     }
 
     @Override
-    public Page<GeometricFigure> findAll(Pageable pageable) {
-        return geometricFigureRepository.findAll(pageable);
+    public List<GeometricFigure> findAll() {
+        return geometricFigureRepository.findAll();
+    }
+
+    @Override
+    public List<GeometricFigure> findByNome(String nome) {
+        return geometricFigureRepository.findByNome(nome);
     }
 }
